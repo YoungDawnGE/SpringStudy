@@ -1,0 +1,13 @@
+com\gyc\mvcframework\servlet\GYCDispatcherServlet.class
+com\gyc\demo\service\IStudentService.class
+com\gyc\demo\service\impl\TeacherService.class
+com\gyc\demo\controller\TeacherController.class
+com\gyc\mvcframework\annonation\GYCService.class
+com\gyc\mvcframework\annonation\GYCAutowired.class
+com\gyc\mvcframework\annonation\GYCRequestMapping.class
+com\gyc\demo\controller\StudentController.class
+com\gyc\mvcframework\annonation\GYCRequestParam.class
+com\gyc\demo\service\impl\StudentService.class
+com\gyc\mvcframework\annonation\GYCController.class
+com\gyc\demo\service\ITeacherService.class
+com\gyc\mvcframework\servlet\MyDispatcherServletCopy.class
