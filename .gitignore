@@ -1,9 +1,6 @@
-src/test/java/
-AHelloSpring/src/test/java/
-GYCSpring01/src/test/java/
-
 target/
-AHelloSpring/target/
+AHelloSpringIOC/target/
+BHelloSpringAOP/target/
 GYCSpring01/target/
 
 AHelloSpring/lib/
