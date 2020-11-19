@@ -4,13 +4,16 @@
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset" name="Pom" removed="false">
-          <file>file://$MODULE_DIR$/pom.xml</file>
+          <file>file://$MODULE_DIR$/../AHelloSpring/pom.xml</file>
         </fileset>
         <fileset id="fileset2" name="Beans" removed="false">
-          <file>file://$MODULE_DIR$/src/main/resources/beans.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/applicationContext.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/beans02.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/A02_SetterDI.xml</file>
+          <file>file://$MODULE_DIR$/../AHelloSpring/src/main/resources/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/../AHelloSpring/src/main/resources/beans02.xml</file>
+          <file>file://$MODULE_DIR$/../AHelloSpring/src/main/resources/A02_SetterDI.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/A01_ConstructorDI.xml</file>
+        </fileset>
+        <fileset id="fileset3" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/com/gyc/appConifg/GYCConfig.java</file>
         </fileset>
       </configuration>
     </facet>

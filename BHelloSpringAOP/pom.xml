@@ -6,14 +6,14 @@
         <artifactId>SpringStudy</artifactId>
         <groupId>com.gyc</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>BHelloSpringAOP</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
-        <!--relativePath 父模块导入过的dependency，子模块就不需要导入了-->
+        <!--relativePath相对路径 父模块导入过的dependency，子模块就不需要导入了-->
 
     </dependencies>
 
