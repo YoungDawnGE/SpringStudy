@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    构造器注入    -->
+
+    <!--bean就是java对象 , 由Spring创建和管理,ApplicationContext-->
+    <!--0、默认构造器-->
+    <bean id="stu1" class="com.gyc.pojo.Student" name="student" scope="prototype">
+        <property name="id" value="20201118"/>
+        <property name="name" value="GYC"/>
+        <property name="phone" value="10086"/>
+    </bean>
+
+    <!--1、下标方式赋值    -->
+    <bean id="stu2" class="com.gyc.pojo.Student">
+        <constructor-arg index="0" value="123456789"/>
+    </bean>
+
+    <!--2、通过类型赋值，不建议使用因为可能好几个参数的类型一样-->
+    <bean id="stu3" class="com.gyc.pojo.Student">
+        <constructor-arg type="java.lang.String" value="123456789"/>
+    </bean>
+
+    <bean id="stu4" class="com.gyc.pojo.Student">
+        <constructor-arg name="id" value="1234567890"/>
+    </bean>
+
+    <!--别名-->
+    <alias name="stu1" alias="newName"/>
+
+
+
+
+
+
+
+</beans>
