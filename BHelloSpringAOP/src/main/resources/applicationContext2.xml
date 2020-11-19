@@ -24,27 +24,23 @@
     -->
 
     <!--开启注解-->
-<!--
     <context:annotation-config/>
--->
     <!--扫描包：从哪个包下面去找bean, 我使用AppConfig配置，下面这段就不要了-->
-<!--
-    <context:component-scan base-package="com.gyc.pojo,com.gyc.dao,com.gyc.service,com.gyc.controller,com.gyc.a01loglog"/>
--->
+    <context:component-scan base-package="com.gyc.pojo,com.gyc.dao,com.gyc.service,com.gyc.controller,com.gyc.a01log"/>
 
-    <bean id="userServiceImpl" class="com.gyc.service.serviceImpl.UserServiceImpl"/>
-    <bean id="logBefore" class="com.gyc.a01log.LogBefore"/>
-    <bean id="logAfter" class="com.gyc.a01log.LogAfter"/>
 
+    <bean id="userServiceImpl2" class="com.gyc.service.serviceImpl.UserServiceImpl"/>
     <!--配置AOP-->
-    <!--way1、使用原生Spring接口完成AOP配置-->
+    <!--way2、使用自定的切面GYCAspcet完成AOP配置-->
+    <bean id="gycAspect" class="com.gyc.a02MyAspect.GYCAspect"/>
     <aop:config>
-        <!--切入点：在哪执行方法. execution(要执行的位置* * * * *)-->
-        <!--注意！通配符*不要写错  错误写法execution(* com.gyc.service.serviceImpl.UserServiceImpl(..))-->
-        <!--注意！通配符*不要写错  正确写法execution(* com.gyc.service.serviceImpl.UserServiceImpl.*(..))-->
-        <aop:pointcut id="pointcutLog" expression="execution(* com.gyc.service.serviceImpl.UserServiceImpl.*(..))"/>
-        <aop:advisor advice-ref="logBefore" pointcut-ref="pointcutLog"/>
-        <aop:advisor advice-ref="logAfter" pointcut-ref="pointcutLog"/>
+        <!--aop:aspcet 自定义的切面，引用ref要引用的那个自定义的切面-->
+        <aop:aspect ref="gycAspect">
+            <!--切入点：在哪执行方法. execution(要执行的位置* * * * *)-->
+            <aop:pointcut id="myJoinPoint" expression="execution(* com.gyc.service.serviceImpl.UserServiceImpl.*(..))"/>
+            <!--通知-->
+            <aop:before method="gycBefore" pointcut-ref="myJoinPoint"/>
+            <aop:after method="gycAfter" pointcut-ref="myJoinPoint"/>
+        </aop:aspect>
     </aop:config>
-
 </beans>

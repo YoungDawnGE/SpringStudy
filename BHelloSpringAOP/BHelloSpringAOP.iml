@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module version="4">
+<module type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="fileset" name="Spring Application Context" removed="false">
+        <fileset id="fileset" name="ApplicationContext" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/applicationContext.xml</file>
-          <file>file://$MODULE_DIR$/src/main/java/com/gyc/appConifg/GYCConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/gyc/config/AppConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/resources/applicationContext2.xml</file>
         </fileset>
       </configuration>
     </facet>

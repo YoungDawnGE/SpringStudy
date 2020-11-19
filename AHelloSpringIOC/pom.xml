@@ -14,7 +14,7 @@
 
 
     <dependencies>
-        <!--relativePath相对路径 父模块导入过的dependency，子模块就不需要导入了-->
+        <!--relativePath相对路径../pom.xml 父模块导入过的dependency，子模块就不需要导入了-->
 
     </dependencies>
 
