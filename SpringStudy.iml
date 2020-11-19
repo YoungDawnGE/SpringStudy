@@ -15,5 +15,12 @@
         </sourceRoots>
       </configuration>
     </facet>
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="ApplicationContext" removed="false">
+          <file>file://$MODULE_DIR$/BHelloSpringAOP/src/main/resources/applicationContext.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
   </component>
 </module>

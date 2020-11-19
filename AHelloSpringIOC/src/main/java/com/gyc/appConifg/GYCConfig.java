@@ -4,7 +4,6 @@ import com.gyc.pojo.GraduateStudent;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
 /**
  * Created by GYC
