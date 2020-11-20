@@ -1,0 +1,2 @@
+这个项目整合了mybatis-spring
+配置比BHelloSpringAOP中的更加简单
