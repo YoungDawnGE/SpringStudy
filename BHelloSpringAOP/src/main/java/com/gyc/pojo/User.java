@@ -1,53 +1,86 @@
 package com.gyc.pojo;
 
+import java.util.Date;
+
 /**
  * Created by GYC
  * 2020/11/19 12:46
  */
 public class User {
-    private String name;
-    private int age;
-    private String sex;
+    private int id;
+    private String userId;
+    private String userName;
+    private String phone;
+    private int lanId;
+    private int regionId;
+    private Date createTime;
 
-    public User() {
+    public int getId() {
+        return id;
     }
 
-    public User(String name, int age, String sex) {
-        this.name = name;
-        this.age = age;
-        this.sex = sex;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public int getAge() {
-        return age;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getSex() {
-        return sex;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public int getLanId() {
+        return lanId;
+    }
+
+    public void setLanId(int lanId) {
+        this.lanId = lanId;
+    }
+
+    public int getRegionId() {
+        return regionId;
+    }
+
+    public void setRegionId(int regionId) {
+        this.regionId = regionId;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", sex='" + sex + '\'' +
+                "id=" + id +
+                ", userId='" + userId + '\'' +
+                ", userName='" + userName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", lanId=" + lanId +
+                ", regionId=" + regionId +
+                ", createTime=" + createTime +
                 '}';
     }
 }

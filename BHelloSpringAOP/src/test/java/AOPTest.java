@@ -10,7 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * Created by GYC
  * 2020/11/19 13:27
  */
-public class AppConfigTest {
+public class AOPTest {
     // 暂时不能用以下扫描注解的方式
     // ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
     // 来获取IOC容器，因为所有的AOP目前是写在applicationContext.xml中的，
@@ -56,5 +56,14 @@ public class AppConfigTest {
         userService.getUser();
     }
 
-
+    // way3 使用注解实现AOP 记得在applicationContext3.xml里面开启扫描
+    @Test
+    public void test04() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext3.xml");
+        UserService userService = (UserService) context.getBean("userServiceImpl3");
+        userService.addUser();
+        userService.deleteUser();
+        userService.updateUser();
+        userService.getUser();
+    }
 }

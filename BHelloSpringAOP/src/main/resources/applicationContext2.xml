@@ -23,11 +23,12 @@
         @ComponentScan({"com.gyc.a01loglog","com.gyc.controller","com.gyc.service","com.gyc.dao","com.gyc.pojo"})
     -->
 
-    <!--开启注解-->
+<!--
+    &lt;!&ndash;开启注解&ndash;&gt;
     <context:annotation-config/>
-    <!--扫描包：从哪个包下面去找bean, 我使用AppConfig配置，下面这段就不要了-->
+    &lt;!&ndash;扫描包：从哪个包下面去找bean, 我使用AppConfig配置，下面这段就不要了&ndash;&gt;
     <context:component-scan base-package="com.gyc.pojo,com.gyc.dao,com.gyc.service,com.gyc.controller,com.gyc.a01log"/>
-
+-->
 
     <bean id="userServiceImpl2" class="com.gyc.service.serviceImpl.UserServiceImpl"/>
     <!--配置AOP-->

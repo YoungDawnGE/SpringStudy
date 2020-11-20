@@ -8,6 +8,7 @@ import java.lang.reflect.Method;
  * Created by GYC
  * 2020/11/19 13:01
  * 为原有的项目增加日志功能
+ * 方法1
  * 利用Spring提供的AOP的接口
  *
  * 前置
