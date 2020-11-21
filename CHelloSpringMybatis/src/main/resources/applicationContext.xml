@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--DataSource 使用Spring的数据源替换Mybatis的配置 c3p0 dbcp druid-->
+    <!--DataSource配置数据源，使用Spring的数据源替换Mybatis的配置 还有c3p0 dbcp druid-->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://192.168.253.128:3306/gycdb_02"/>
@@ -12,7 +12,7 @@
     </bean>
     <!--SqlSessionFactory,这个就是前一个项目mybatis的配置-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />
+        <property name="dataSource" ref="dataSource"/>
         <!--绑定Mybatis配置文件 其实这一步也完全可以被取代，把其中的属性都写在这就行-->
         <property name="configLocation" value="mybatis-config.xml"/>
         <property name="typeAliasesPackage" value="com.gyc.pojo"/>
@@ -23,8 +23,15 @@
         <constructor-arg ref="sqlSessionFactory"/>
     </bean>
 
+    <!--方法1-->
     <!--注入MapperDaoImpl-->
     <bean id="userMapper" class="com.gyc.dao.UserDaoImpl">
         <property name="sqlSessionTemplate" ref="sqlSession"/>
+    </bean>
+
+    <!--方法2-->
+    <!--注入MapperDaoImpl2继承了SqlSessionDaoSupport-->
+    <bean id="userMapper2" class="com.gyc.dao.UserDaoImpl2">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
 </beans>
