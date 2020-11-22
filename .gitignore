@@ -2,6 +2,7 @@ target/
 AHelloSpringIOC/target/
 BHelloSpringAOP/target/
 GYCSpring01/target/
+*/target/
 
 .idea/
 .iml

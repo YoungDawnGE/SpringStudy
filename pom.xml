@@ -13,6 +13,7 @@
         <module>AHelloSpringIOC</module>
         <module>BHelloSpringAOP</module>
         <module>GYCSpring01</module>
+        <module>GYCSpring02</module>
     </modules>
 
     <!--设置JDK版本-->
