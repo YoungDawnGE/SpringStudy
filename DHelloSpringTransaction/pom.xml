@@ -11,7 +11,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>myspring</groupId>
-    <artifactId>CHelloSpringMybatis</artifactId>
+    <artifactId>DHelloSpringTransaction</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
@@ -75,5 +75,5 @@
             </resource>
         </resources>
     </build>
-    
+
 </project>

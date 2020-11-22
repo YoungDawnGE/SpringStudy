@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mybatis核心配置文件configuration-->
+<mapper namespace="com.gyc.dao.UserDao">
+    <!--用于数据库字段于pojo字段映射（因为它们字段名不一致），type可以为User也可以为user-->
+    <resultMap id="userResultMap" type="user">
+        <!--id是主键,column是数据库中的名字，property是pojo中的-->
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <result column="phone" property="phone"/>
+        <result column="lan_id" property="lanId"/>
+        <result column="region_id" property="regionId"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <select id="selectAllUsers" resultMap="userResultMap" parameterType="int">
+        select *
+        from test_user
+        limit #{param1},#{param2};
+    </select>
+
+    <select id="selectUserById" resultMap="userResultMap" parameterType="int">
+        select *
+        from test_user
+        where id = #{0};
+    </select>
+
+    <insert id="insertUser" parameterType="User" >
+        insert into test_user(user_id, user_name, phone, lan_id, region_id, create_time)
+        values (#{userId},#{userName},#{phone},#{lanId},#{regionId},#{createTime});
+    </insert>
+
+    <!--写一个错误的sql (deletes)用于测试事务-->
+    <delete id="deletesUserById" parameterType="int">
+        deletes from test_user where id=${id};
+    </delete>
+
+</mapper>

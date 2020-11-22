@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+       https://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--DataSource配置数据源，使用Spring的数据源替换Mybatis的配置 还有c3p0 dbcp druid-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://192.168.253.128:3306/gycdb_02"/>
+        <property name="username" value="gyc"/>
+        <property name="password" value="GYCgyc123???"/>
+    </bean>
+
+    <!--SqlSessionFactory,这个就是前一个项目mybatis的配置-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!--声明式事务-->
+
+        <!--绑定Mybatis配置文件 其实这一步也完全可以被取代，把其中的属性都写在这就行-->
+        <!--        <property name="configLocation" value="mybatis-config.xml"/>-->
+        <property name="mapperLocations" value="classpath:com/gyc/dao/*.xml"/>
+        <property name="typeAliasesPackage" value="com.gyc.pojo"/>
+    </bean>
+    <!--SqlSessionTemplate就是SqlSession，创建一个SqlSessionTemplate（MyBatis包中的）-->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <!--只能使用构造器注入，因为它没有set方法-->
+        <constructor-arg ref="sqlSessionFactory"/>
+    </bean>
+
+
+    <!--配置声明式事务-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <constructor-arg ref="dataSource" />
+    </bean>
+    <!--整合AOP实现事务的织入-->
+    <!--配置事务的通知-->
+    <!--tx:advice相当于<bean id="logBefore" class="com.gyc.a01log.LogBefore"/>-->
+
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <!--给哪些方法配置事务-->
+        <!--配置事务的传播特性 **propagation**这个很重要-->
+        <tx:attributes>
+            <tx:method name="insertUser" propagation="REQUIRED"/>
+            <tx:method name="deletesUserById" propagation="REQUIRED"/>
+            <tx:method name="selectAllUsers" read-only="true"/>
+            <!--给所有方法配置事务 以上可以直接用下面这句话-->
+            <tx:method name="*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+    <!--配置事务的切入-->
+    <aop:config>
+        <aop:pointcut id="txPointcut" expression="execution(* com.gyc.dao.UserDaoImpl.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+    </aop:config>
+</beans>
