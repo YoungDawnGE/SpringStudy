@@ -41,5 +41,7 @@ public class BeanTest01 {
 
         Student student2 = (Student) context.getBean("stu1");
         System.out.println(student2.hashCode());
+
+        System.out.println(context.getBeanDefinitionCount());
     }
 }
